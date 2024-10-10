@@ -134,6 +134,18 @@
             cursor: pointer;
             font-size: 20px;
         }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 80px auto;
+                padding: 15px;
+            }
+
+            .navbar .nav-links {
+                flex-direction: row;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -142,6 +154,7 @@
         <nav class="nav-links">
             <a href="blog.html">Home</a>
             <a href="#" class="active">About</a>
+            <a href="contact.html">Contact</a>
             <button class="login-button" onclick="openModal()">Login</button>
         </nav>
     </header>
