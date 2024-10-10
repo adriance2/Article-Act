@@ -29,7 +29,6 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            transition: transform 0.3s ease-in-out;
         }
 
         .navbar .logo {
@@ -40,7 +39,6 @@
         .navbar .nav-links {
             display: flex;
             gap: 20px;
-            align-items: center;
         }
 
         .navbar .nav-links a {
@@ -51,22 +49,23 @@
             border-radius: 5px;
         }
 
+        .navbar .nav-links a:hover,
         .navbar .nav-links a.active {
             background-color: #444;
         }
 
-        .login-button {
-            background-color: #444;
-            border: none;
+        .navbar .login-button {
             padding: 5px 10px;
-            border-radius: 5px;
+            background-color: #333;
             color: #fff;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
-        .login-button:hover {
-            background-color: #555;
+        .navbar .login-button:hover {
+            background-color: #444;
         }
 
         .article-links {
@@ -235,6 +234,18 @@
             cursor: pointer;
             font-size: 20px;
         }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 80px auto;
+                padding: 15px;
+            }
+
+            .navbar .nav-links {
+                flex-direction: row;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -243,6 +254,7 @@
         <nav class="nav-links">
             <a href="#" class="active">Home</a>
             <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
             <button class="login-button" onclick="openModal()">Login</button>
         </nav>
     </header>
