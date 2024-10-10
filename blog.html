@@ -40,6 +40,7 @@
         .navbar .nav-links {
             display: flex;
             gap: 20px;
+            align-items: center;
         }
 
         .navbar .nav-links a {
@@ -52,6 +53,20 @@
 
         .navbar .nav-links a.active {
             background-color: #444;
+        }
+
+        .login-button {
+            background-color: #444;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #555;
         }
 
         .article-links {
@@ -166,7 +181,6 @@
             background-color: #ddd;
         }
 
-        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -229,6 +243,7 @@
         <nav class="nav-links">
             <a href="#" class="active">Home</a>
             <a href="about.html">About</a>
+            <button class="login-button" onclick="openModal()">Login</button>
         </nav>
     </header>
 
@@ -282,7 +297,6 @@
 
     <div class="back-to-top">
         <a href="#">Back to Top</a>
-        <button onclick="openModal()">Login</button>
     </div>
 
     <div class="modal" id="loginModal">
