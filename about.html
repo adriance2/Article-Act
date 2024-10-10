@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="icon" type="image/png" href="images/icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar .nav-links a.active {
+            background-color: #444;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: #f4f4f4;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Scuff Site</div>
+        <nav class="nav-links">
+            <a href="blog.html">Home</a>
+            <a href="#" class="active">About</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>About Us</h1>
+        <p>Welcome to Scuff Site! The institution provides state-of-the-art facilities and modern learning environments designed to equip students with the skills and knowledge necessary to excel in their chosen disciplines.</p>
+        <p>The campus features specialized buildings for each department, such as the Engineering Building, the CME Building, the CEAS Building, and the COT Building. Each of these facilities is designed to provide an enriching and conducive learning environment with advanced equipment and resources for both practical and theoretical learning.</p>
+    </div>
+</body>
+</html>
