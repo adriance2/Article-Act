@@ -18,55 +18,58 @@
         }
 
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    position: fixed;
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+}
 
-        .navbar .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
+.navbar .logo-svg-container {
+    display: flex;
+    align-items: center;
+}
 
-        .navbar .nav-links {
-            display: flex;
-            gap: 20px;
-        }
+.navbar .nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center; /* Center align the links vertically */
+}
 
-        .navbar .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            padding: 5px 10px;
-            transition: background-color 0.3s;
-            border-radius: 5px;
-        }
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
 
-        .navbar .nav-links a:hover,
-        .navbar .nav-links a.active {
-            background-color: #444;
-        }
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+    background-color: #444;
+}
 
-        .navbar .login-button {
-            padding: 5px 10px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+.navbar .login-button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .navbar .login-button:hover {
-            background-color: #444;
-        }
+.navbar .login-button:hover {
+    background-color: #444;
+}
 
         .article-links {
             display: flex;
@@ -79,9 +82,9 @@
             width: 100%;
             top: 50px;
             left: 0;
-            z-index: 1000;
             transition: transform 0.3s ease-in-out;
-        }
+    }
+        
 
         .article-links a {
             color: #333;
@@ -234,30 +237,78 @@
             cursor: pointer;
             font-size: 20px;
         }
+        
+        .logo-svg-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
 
-        @media (max-width: 768px) {
-            .container {
+.logo-text {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+        svg {
+    margin: 0;
+}
+
+        svg text {
+    text-anchor: middle; 
+    dominant-baseline: middle; 
+}
+
+@media (max-width: 768px) {
+    .container {
                 margin: 80px auto;
                 padding: 15px;
             }
+            
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
 
-            .navbar .nav-links {
-                flex-direction: row;
-                gap: 10px;
-            }
+    .logo-svg-container {
+        margin-bottom: 10px;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%; 
+    }
+
+    .nav-links a,
+    .login-button {
+        width: 100%;
+        text-align: center;
+    }
+    
+    
+}
         }
     </style>
 </head>
 <body>
     <header class="navbar">
-        <div class="logo">Scuff Site</div>
-        <nav class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <button class="login-button" onclick="openModal()">Login</button>
-        </nav>
-    </header>
+    <div class="logo-svg-container">
+    <svg height="50" width="50">
+        <circle cx="25" cy="25" r="20" fill="white" />
+        <text x="25" y="30" fill="black" font-size="16" font-family="Verdana" text-anchor="middle" alignment-baseline="middle">SS</text>
+    </svg>
+    <span class="logo-text">Scuff Site</span>
+</div>
+    <nav class="nav-links" id="navLinks">
+        <a href="#" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <button class="login-button" onclick="openModal()">Login</button>
+    </nav>
+</header>
 
     <div class="article-links">
         <a href="#article1">Engineering</a>
@@ -331,21 +382,23 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            let lastScrollY = window.scrollY;
-            const navbar = document.querySelector('.navbar');
-            const articleLinks = document.querySelector('.article-links');
+    let lastScrollY = window.scrollY;
+    const navbar = document.querySelector('.navbar');
+    const articleLinks = document.querySelector('.article-links');
 
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > lastScrollY) {
-                    navbar.style.transform = 'translateY(-100%)';
-                    articleLinks.style.transform = 'translateY(-100%)';
-                } else {
-                    navbar.style.transform = 'translateY(0)';
-                    articleLinks.style.transform = 'translateY(0)';
-                }
-                lastScrollY = window.scrollY;
-            });
-        });
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > lastScrollY) {
+            // Hide navbar and article links
+            navbar.style.transform = 'translateY(-100%)';
+            articleLinks.style.transform = 'translateY(-100%)';
+        } else {
+            // Show navbar and article links
+            navbar.style.transform = 'translateY(0)';
+            articleLinks.style.transform = 'translateY(0)';
+        }
+        lastScrollY = window.scrollY;
+    });
+});
     </script>
 </body>
 </html>
